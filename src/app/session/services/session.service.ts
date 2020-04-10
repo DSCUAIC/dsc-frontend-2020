@@ -33,9 +33,6 @@ export class SessionService {
   constructor(private http: HttpClient) { }
   
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
-    
-    
-
     return this.http.post<any>(`${config.apiUrl}/login`,payload)
     .pipe(
       tap(tokens => this.doLoginUser(payload.email,tokens)),
@@ -59,6 +56,11 @@ export class SessionService {
       localStorage.setItem(this.response,tokens.jwt);
       //localStorage.setItem(this.REFRESH_TOKEN,tokens.refreshToken) 
       //^ nu sunt sigur daca trebuie
+  }
+
+
+  public checkAccount(token:string):Observable<any>{
+    return this.http.patch<any>(`${config.apiUrl}/post`,{token});
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
