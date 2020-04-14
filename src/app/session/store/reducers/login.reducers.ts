@@ -10,12 +10,14 @@ export const sessionLoginReducers = [
       loading: true
     }
   })),
-  on(SessionLoginSuccess, (state: ISessionState, data: any) => ({
+  on(SessionLoginSuccess, (state: ISessionState, payload: any) => ({
     ...state,
     login: {
       loading: false,
       error: null,
-      data
+      data: {
+        token: payload.token
+      }
     }
   })),
   on(SessionLoginFailure, (state: ISessionState, error: any) => ({

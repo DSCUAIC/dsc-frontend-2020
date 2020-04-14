@@ -45,7 +45,7 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     ...sessionEffects,
-    AuthGuardService,
+    AuthGuardService
   ]
 })
 export class SessionModule { }

@@ -15,13 +15,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SessionService {
-  private url: string = environment.url;
+  // private url: string = environment.url;
+  private url: string = "http://localhost:1337";
 
   constructor(private http: HttpClient) {}
 
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
-    // to be implemented
-    return null;
+    return this.http.post<ILoginResponse>(this.url + '/login', payload);
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
@@ -30,7 +30,6 @@ export class SessionService {
 
   public forgot(payload: IForgotPayload): Observable<any> {
     return this.http.post<IForgotResponse>(this.url + '/forgot', payload);
-    return null;
   }
 
   public logout(): void {

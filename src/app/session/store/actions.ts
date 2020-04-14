@@ -6,9 +6,9 @@ export const SessionLoginRequest = createAction(
 );
 export const SessionLoginSuccess = createAction(
   '[Session] Login Success',
-  props<{ payload: { [key: string]: any } }>() // TODO change with right interface
+  props<{ payload: { token: string } }>() // TODO change with right interface
 );
 export const SessionLoginFailure = createAction(
   '[Session] Login Failure',
-  props<{ [key: string]: any }>() // TODO change with right interface
+  props<{ error: any }>() // TODO change with right interface
 );
