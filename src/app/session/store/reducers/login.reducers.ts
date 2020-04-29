@@ -10,7 +10,7 @@ export const sessionLoginReducers = [
       loading: true
     }
   })),
-  on(SessionLoginSuccess, (state: ISessionState, payload: any) => ({
+  on(SessionLoginSuccess, (state: ISessionState, payload: any  ) => ({
     ...state,
     login: {
       loading: false,

@@ -15,8 +15,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SessionService {
-  // private url: string = environment.url;
-  private url: string = "http://localhost:1337";
+  private url: string = environment.url;
 
   constructor(private http: HttpClient) {}
 
