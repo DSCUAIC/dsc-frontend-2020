@@ -7,7 +7,11 @@ import {
   IRegisterPayload,
   IRegisterResponse,
   IForgotPayload,
+<<<<<<< HEAD
   TokenPair
+=======
+  IForgotResponse,
+>>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
 } from '../models';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
@@ -20,7 +24,7 @@ export const config = {
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
   private url: string = environment.url;
@@ -30,8 +34,13 @@ export class SessionService {
   private readonly REFRESH_TOKEN='REFRESH_TOKEN';
   private response: string ="?";
 
+<<<<<<< HEAD
   constructor(private http: HttpClient) { }
   
+=======
+  constructor(private http: HttpClient) {}
+
+>>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
     return this.http.post<any>(`${config.apiUrl}/login`,payload)
     .pipe(
@@ -64,16 +73,19 @@ export class SessionService {
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
-    // to be implemented
-    return null;
+    return this.http.post<IRegisterResponse>(this.url + '/register', payload);
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
+<<<<<<< HEAD
     
+=======
+    return this.http.post<IForgotResponse>(this.url + '/forgot', payload);
+>>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
     return null;
   }
 
   public logout(): void {
-    // to be implemented
+    localStorage.removeItem('token');
   }
 }

@@ -1,0 +1,76 @@
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$dsc-primary: (
+  50: #f1f8e9,
+  100: #dcedc8,
+  200: #c5e1a5,
+  300: #aed581,
+  400: #BCE286,
+  500: #BCE286,
+  600: #7cb342,
+  700: #689f38,
+  800: #558b2f,
+  900: #33691e,
+  A100: #ccff90,
+  A200: #b2ff59,
+  A400: #76ff03,
+  A700: #64dd17,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$mat-accent: (
+  50: #e0f7fa,
+  100: #b2ebf2,
+  200: #80deea,
+  300: #4dd0e1,
+  400: #15D0A1,
+  500: #15D0A1,
+  600: #15D0A1,
+  700: #0097a7,
+  800: #00838f,
+  900: #006064,
+  A100: #84ffff,
+  A200: #15D0A1,
+  A400: #00e5ff,
+  A700: #00b8d4,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$dsc-primary: mat-palette($dsc-primary);
+$dsc-accent: mat-palette($mat-accent, A200, A100, A400);
+$dsc-warn: mat-palette($mat-red);
+$dsc-theme: mat-light-theme($dsc-primary, $dsc-accent, $dsc-warn);
+
+@include angular-material-theme($dsc-theme);

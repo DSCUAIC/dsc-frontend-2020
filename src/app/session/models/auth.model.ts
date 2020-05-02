@@ -32,3 +32,7 @@ export interface IRegisterPayload {
 export interface IForgotPayload {
   email: string;
 }
+
+export interface IForgotResponse {
+  status: string;
+}

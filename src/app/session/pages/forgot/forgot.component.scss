@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2em;
+}
+
+label { 
+    text-align: center;
+}
+
+input {
+    display: flex;
+}
+
+input[type=email] {
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 1px 0;
+    height: fit-content; 
+}
+
+.warn {
+    font-size: 14px;
+    position: relative;
+    color: red;
+}
+
+
+    
+
+   

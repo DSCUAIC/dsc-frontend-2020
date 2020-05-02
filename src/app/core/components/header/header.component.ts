@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { TimeTableService } from '../../../timetable/services/time-table.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input() weekDay: string;
+  weekDay: string = 'Monday';
+  public subscriptions$ = new Subscription();
+  constructor(private timetableService: TimeTableService) {}
+  ngOnInit() {
+    this.timetableService.message$.subscribe((msg) => {
+      this.weekDay = msg;
+    });
+  }
+  ngOnDestroy() {
+    this.subscriptions$.unsubscribe();
+  }
 }
