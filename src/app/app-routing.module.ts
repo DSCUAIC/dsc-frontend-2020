@@ -11,6 +11,7 @@ import {
 import { NonAuthGuardService } from './session/services/nonauth-guard.service';
 import { AuthGuardService } from './session/services/auth-guard.service';
 import { WelcomePageComponent } from './core/pages';
+import { ValidationComponent } from './session/pages/validation/validation.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
       {
         path: 'new-password',
         component: PasswordRecoveryNewPasswordComponent
+      },
+      {
+        path: 'verification',
+        component: ValidationComponent
       }
     ]
   },

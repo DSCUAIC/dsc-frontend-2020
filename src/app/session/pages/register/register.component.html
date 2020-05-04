@@ -1,5 +1,8 @@
+
 <div class="SignUp">
   <form [formGroup]="registerForm">
+
+    {{status}}
   <div class="positionInRow">
     <mat-form-field>
       <input type="text" class="input-field" matInput placeholder="First Name" formControlName="firstName" required />
@@ -43,7 +46,7 @@
       </mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-flat-button color="primary" [disabled]="registerForm.invalid">Create account</button>
+    <button type="submit" mat-flat-button color="primary" [disabled]="registerForm.invalid" (click)="save()">Create account</button>
     <p>By signing up, you agree to our <a href="#">Terms and Conditions</a> & <a href="#">Privacy Policy</a>.</p>
   </form>
 </div>

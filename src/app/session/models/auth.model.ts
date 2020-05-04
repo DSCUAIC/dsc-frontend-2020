@@ -18,7 +18,6 @@ export interface IRegisterPayload {
   lastname: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
 export interface IForgotPayload {
@@ -27,4 +26,8 @@ export interface IForgotPayload {
 
 export interface IForgotResponse {
   status: string;
+}
+
+export interface IValidate {
+  token: string;
 }

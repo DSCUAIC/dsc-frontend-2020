@@ -8,6 +8,7 @@ import {
   IRegisterResponse,
   IForgotPayload,
   IForgotResponse,
+  IValidate,
 } from '../models';
 import { environment } from 'src/environments/environment';
 
@@ -25,7 +26,7 @@ export class SessionService {
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
-    return this.http.post<IRegisterResponse>(this.url + '/register', payload);
+    return this.http.post<IRegisterResponse>(this.url + '/auth/register', payload);
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
@@ -33,7 +34,12 @@ export class SessionService {
     return null;
   }
 
+  public validate(payload: IValidate): Observable<any> {
+    return this.http.post<any>(this.url + '/auth/validate', payload);
+  }
+
   public logout(): void {
     localStorage.removeItem('token');
   }
+
 }
