@@ -7,7 +7,7 @@ import { Validators, FormControl } from '@angular/forms';
   styleUrls: ['./password-recovery.component.scss']
 })
 export class PasswordRecoveryComponent {
-  public email = new FormControl('', [Validators.email]);
+  public email = new FormControl('', [Validators.email, Validators.required]);
 
   submit() {
     // call to api

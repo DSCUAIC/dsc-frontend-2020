@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-password-recovery-two',
@@ -7,9 +7,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./password-recovery-two.component.scss']
 })
 export class PasswordRecoveryTwoComponent {
-  public code = new FormControl('');
+
+  public code = new FormControl('', [Validators.required]);
 
   submit() {
-    // call to api
+    //call to api
   }
 }

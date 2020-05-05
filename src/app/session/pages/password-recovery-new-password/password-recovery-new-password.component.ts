@@ -26,7 +26,7 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
       const passwordValue = this.password.value;
 
       if (confirmedPasswordValue && passwordValue && confirmedPasswordValue !== passwordValue) {
-        return { 'fieldMatch': true };
+        return { fieldMatch: true };
       }
     }
 

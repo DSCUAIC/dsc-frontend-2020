@@ -1,33 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
-import { RegisterComponent, LoginComponent } from './session/pages';
 import {
-  NonauthGuardService as NonAuthGuard
-} from './session/services/nonauth-guard.service';
-import { PasswordRecoveryTwoComponent } from './session/pages/password-recovery-two/password-recovery-two.component';
+  RegisterComponent,
+  LoginComponent,
+  PasswordRecoveryComponent,
+  PasswordRecoveryTwoComponent,
+  PasswordRecoveryNewPasswordComponent
+} from './session/pages';
+import { NonAuthGuardService } from './session/services/nonauth-guard.service';
 import { AuthGuardService } from './session/services/auth-guard.service';
 import { CheckingAccountComponent } from './session/pages/checking-account/checking-account.component';
 import { TroubleshootingComponent } from './session/pages/troubleshooting/troubleshooting.component';
+import { WelcomePageComponent } from './core/pages';
 
 const routes: Routes = [
   {
     path: '',
+    canActivateChild: [AuthGuardService],
     children: [
       {
         path: '',
         component: TimeTableComponent,
-        canActivate: [AuthGuardService]
+      }
+    ]
+  },
+  {
+    path: 'auth',
+    canActivateChild: [NonAuthGuardService],
+    children: [
+      {
+        path: '',
+        component: WelcomePageComponent,
       },
       {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [NonAuthGuard]
       },
       {
         path: 'login',
         component: LoginComponent,
-        canActivate: [NonAuthGuard]
       },
       {
         path: 'forgotpassword2',
@@ -36,13 +48,29 @@ const routes: Routes = [
       },
       {
         path: 'checkingaccount',
-        component: CheckingAccountComponent,
+        component: CheckingAccountComponent
       },
       {
         path: 'troubleshoot',
-        component: TroubleshootingComponent,
+        component: TroubleshootingComponent
+      },
+      {
+        path: 'forgot',
+        component: PasswordRecoveryComponent
+      },
+      {
+        path: 'check-code',
+        component: PasswordRecoveryTwoComponent
+      },
+      {
+        path: 'new-password',
+        component: PasswordRecoveryNewPasswordComponent
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '' // TODO make a 404 page
   }
 ];
 

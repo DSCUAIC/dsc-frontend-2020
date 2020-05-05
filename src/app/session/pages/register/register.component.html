@@ -1,23 +1,49 @@
-<form [formGroup]="registerForm">
-  <label>
-    <span>First Name</span>
-    <input type="text" formControlName="firstName" />
-  </label>
-  <label>
-    <span>Last Name</span>
-    <input type="text" formControlName="lastName" />
-  </label>
-  <label>
-    <span>Email</span>
-    <input type="email" formControlName="email" />
-  </label>
-  <label>
-    <span>Password</span>
-    <input type="password" formControlName="password" />
-  </label>
-  <label>
-    <span>Confirm Password</span>
-    <input type="password" formControlName="confirmPassword" />
-  </label>
-  <button type="submit" [disabled]="registerForm.invalid">Submit</button>
-</form>
+<div class="SignUp">
+  <form [formGroup]="registerForm">
+  <div class="positionInRow">
+    <mat-form-field>
+      <input type="text" class="input-field" matInput placeholder="First Name" formControlName="firstName" required />
+      <mat-error *ngFor="let validation of errorMessages.firstName">
+        <mat-error class="error-message" *ngIf="registerForm.get('firstName').hasError(validation.type)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" class="input-field" matInput placeholder="Last Name" formControlName="lastName" required />
+      <mat-error *ngFor="let validation of errorMessages.lastName">
+        <mat-error class="error-message" *ngIf="registerForm.get('lastName').hasError(validation.type)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+    <mat-form-field>
+      <input type="email" class="input-field" matInput placeholder="Email" formControlName="email" required />
+      <mat-error *ngFor="let validation of errorMessages.email">
+        <mat-error class="error-message" *ngIf="registerForm.get('email').hasError(validation.type)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" class="input-field" matInput placeholder="Password" formControlName="password" required />
+      <mat-error *ngFor="let validation of errorMessages.password">
+        <mat-error class="error-message" *ngIf="registerForm.get('password').hasError(validation.type)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" class="input-field" matInput placeholder="Repeat Password"
+        formControlName="confirmPassword" required />
+      <mat-error *ngFor="let validation of errorMessages.confirmPassword">
+        <mat-error class="error-message" *ngIf="registerForm.get('confirmPassword').hasError(validation.type)">
+          {{validation.message}}</mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-flat-button color="primary" [disabled]="registerForm.invalid">Create account</button>
+    <p>By signing up, you agree to our <a href="#">Terms and Conditions</a> & <a href="#">Privacy Policy</a>.</p>
+  </form>
+</div>

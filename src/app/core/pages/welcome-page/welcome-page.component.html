@@ -1,17 +1,25 @@
 <div class="welcome-page-container">
-    <div class="welcome-header">
-        <img src="../../../../assets/welcome-page-assets/Background.png">
-        <p>Welcome</p>
-    </div>
-    <div class="welcome-main-container">
-        <button mat-flat-button color="accent">Register</button>
+  <div class="welcome-header">
+    <img src="../../../../assets/welcome-page-assets/Background.png">
+    <p>Welcome</p>
+  </div>
+  <div class="welcome-main-container">
+    <button mat-flat-button
+            color="accent"
+            [routerLink]="['/auth/register']">Register</button>
 
-        <div class="divider-container">
-            <div class="line"><mat-divider></mat-divider></div>
-            <div class="mat-typography">or</div>
-            <div class="line"><mat-divider></mat-divider></div>
-        </div>
-        
-        <button mat-flat-button color="primary">Sign in</button>
+    <div class="divider-container">
+      <div class="line">
+        <mat-divider></mat-divider>
+      </div>
+      <div class="mat-typography">or</div>
+      <div class="line">
+        <mat-divider></mat-divider>
+      </div>
     </div>
+
+    <button mat-flat-button
+             color="primary"
+             [routerLink]="['/auth/login']">Sign in</button>
+  </div>
 </div>
