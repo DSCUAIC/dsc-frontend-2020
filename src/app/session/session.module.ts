@@ -16,6 +16,8 @@ import { MaterialModule } from '../material.module';
 import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
+import { CheckingAccountComponent } from './pages/checking-account/checking-account.component';
+import { TroubleshootingComponent } from './pages/troubleshooting/troubleshooting.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-
     LogoutComponent,
     PasswordRecoveryComponent,
     PasswordRecoveryTwoComponent,
-    PasswordRecoveryNewPasswordComponent
+    PasswordRecoveryNewPasswordComponent,
+    CheckingAccountComponent,
+    TroubleshootingComponent
   ],
   imports: [
     ReactiveFormsModule,

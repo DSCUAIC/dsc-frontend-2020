@@ -8,4 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class PasswordRecoveryTwoComponent {
   public code = new FormControl('');
+
+  submit() {
+    // call to api
+  }
 }

@@ -7,6 +7,8 @@ import {
 } from './session/services/nonauth-guard.service';
 import { PasswordRecoveryTwoComponent } from './session/pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './session/services/auth-guard.service';
+import { CheckingAccountComponent } from './session/pages/checking-account/checking-account.component';
+import { TroubleshootingComponent } from './session/pages/troubleshooting/troubleshooting.component';
 
 const routes: Routes = [
   {
@@ -29,7 +31,16 @@ const routes: Routes = [
       },
       {
         path: 'forgotpassword2',
+        component: PasswordRecoveryTwoComponent,
         /* canActivate: [NonAuthGuard] */
+      },
+      {
+        path: 'checkingaccount',
+        component: CheckingAccountComponent,
+      },
+      {
+        path: 'troubleshoot',
+        component: TroubleshootingComponent,
       }
     ]
   }
