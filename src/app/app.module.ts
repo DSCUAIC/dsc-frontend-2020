@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: true }),
+    StoreModule.forRoot({}, {}),
   ],
   exports: [],
   bootstrap: [AppComponent]

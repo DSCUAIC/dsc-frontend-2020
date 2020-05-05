@@ -7,20 +7,17 @@ import {
   IRegisterPayload,
   IRegisterResponse,
   IForgotPayload,
-<<<<<<< HEAD
-  TokenPair
-=======
-  IForgotResponse,
->>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
+  TokenPair,
+  IForgotResponse
 } from '../models';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
-import { tap, mapTo, catchError } from 'rxjs/operators'
+import { tap, mapTo, catchError } from 'rxjs/operators';
 
 
 export const config = {
   apiUrl: 'http://localhost:8080'
-};//asa gasit-am, nu stiu daca e bine
+}; // asa gasit-am, nu stiu daca e bine
 
 
 @Injectable({
@@ -28,28 +25,22 @@ export const config = {
 })
 export class SessionService {
   private url: string = environment.url;
-  
-  private loggedUser:string;
-  private readonly JWT_TOKEN='JWT_TOKEN';
-  private readonly REFRESH_TOKEN='REFRESH_TOKEN';
-  private response: string ="?";
+  private loggedUser: string;
+  private readonly JWT_TOKEN= 'JWT_TOKEN';
+  private readonly REFRESH_TOKEN= 'REFRESH_TOKEN';
+  private response: string = "?";
 
-<<<<<<< HEAD
-  constructor(private http: HttpClient) { }
-  
-=======
   constructor(private http: HttpClient) {}
 
->>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
-    return this.http.post<any>(`${config.apiUrl}/login`,payload)
+    return this.http.post<any>(`${config.apiUrl}/login`, payload)
     .pipe(
-      tap(tokens => this.doLoginUser(payload.email,tokens)),
-      mapTo({token:this.response}),//nu e eleganta metoda prin care tin minte tokenul, 
-      //dar nu am gasit alta solutie ( probabil exista)
-      catchError(error=>{
+      tap(tokens => this.doLoginUser(payload.email, tokens)),
+      mapTo({token: this.response}), // nu e eleganta metoda prin care tin minte tokenul, 
+      // dar nu am gasit alta solutie ( probabil exista)
+      catchError(error => {
         alert(error.error);
-        return of({token:null});
+        return of({token: null});
       })
 
     );
@@ -58,31 +49,27 @@ export class SessionService {
 
 
 
-  private doLoginUser(username:string, tokens:TokenPair) {
+  private doLoginUser(username: string, tokens: TokenPair) {
 
-      this.loggedUser=username;
-      localStorage.setItem(this.JWT_TOKEN,tokens.jwt);
-      localStorage.setItem(this.response,tokens.jwt);
-      //localStorage.setItem(this.REFRESH_TOKEN,tokens.refreshToken) 
-      //^ nu sunt sigur daca trebuie
+      this.loggedUser = username;
+      localStorage.setItem(this.JWT_TOKEN, tokens.jwt);
+      localStorage.setItem(this.response, tokens.jwt);
+      // localStorage.setItem(this.REFRESH_TOKEN,tokens.refreshToken) 
+      // ^ nu sunt sigur daca trebuie
   }
 
 
-  public checkAccount(token:string):Observable<any>{
-    return this.http.patch<any>(`${config.apiUrl}/post`,{token});
+  public checkAccount(token: string): Observable<any> {
+    return this.http.patch<any>(`${config.apiUrl}/post`, {token});
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
-    return this.http.post<IRegisterResponse>(this.url + '/register', payload);
+    return this.http.post<IRegisterResponse>(this.url + '/auth/register', payload);
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
-<<<<<<< HEAD
-    
-=======
-    return this.http.post<IForgotResponse>(this.url + '/forgot', payload);
->>>>>>> 736a84d3f02334c3d9c4e47df8d2a2bb20d4ac66
-    return null;
+    console.log('Email trimis la forgot: ' + payload.email);
+    return this.http.post<IForgotResponse>(`${this.url}/auth/forgot_password`, {email: payload.email});
   }
 
   public logout(): void {
