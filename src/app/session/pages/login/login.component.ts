@@ -10,15 +10,16 @@ import { SessionLoginRequest } from '../../store/actions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   profileForm: FormGroup;
 
   constructor(private fb: FormBuilder, private store: Store<ISessionState>) { }
 
   ngOnInit() {
-   this.profileForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
+    this.profileForm = this.fb.group({
+       email: ['', [Validators.required, Validators.email]],
+       password: ['', Validators.required],
+     });
   }
 
   onSubmit() {

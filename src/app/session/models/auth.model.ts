@@ -1,6 +1,5 @@
 export interface ILoginResponse {
   token: string;
-  // to be implemented
 }
 
 export interface ILoginPayload {

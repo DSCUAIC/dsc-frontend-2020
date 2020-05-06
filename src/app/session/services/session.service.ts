@@ -29,7 +29,6 @@ export class SessionService {
 
   public forgot(payload: IForgotPayload): Observable<any> {
     return this.http.post<IForgotResponse>(this.url + '/forgot', payload);
-    return null;
   }
 
   public logout(): void {
