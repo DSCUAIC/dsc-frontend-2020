@@ -20,7 +20,7 @@ export class SessionService {
   constructor(private http: HttpClient) {}
 
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
-    return this.http.post<ILoginResponse>(this.url + '/login', payload);
+    return this.http.post<ILoginResponse>(this.url + '/auth/login', payload);
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
