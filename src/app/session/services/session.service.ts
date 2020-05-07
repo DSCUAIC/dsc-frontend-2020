@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {
   ILoginResponse,
@@ -8,16 +8,15 @@ import {
   IRegisterResponse,
   IForgotPayload,
   TokenPair,
-  IForgotResponse
+  IForgotResponse,
+  IResetPasswordPayLoad,
+  IResetPasswordResponse
 } from '../models';
-import { environment } from 'src/environments/environment';
+import { environment, config } from 'src/environments/environment';
 import { of } from 'rxjs';
 import { tap, mapTo, catchError } from 'rxjs/operators';
 
 
-export const config = {
-  apiUrl: 'http://localhost:8080'
-}; // asa gasit-am, nu stiu daca e bine
 
 
 @Injectable({
@@ -67,11 +66,14 @@ export class SessionService {
     return this.http.post<IRegisterResponse>(this.url + '/auth/register', payload);
   }
 
-  public forgot(payload: IForgotPayload): Observable<any> {
-    console.log('Email trimis la forgot: ' + payload.email);
+  public forgot(payload: IForgotPayload): Observable<IForgotResponse> {
     return this.http.post<IForgotResponse>(`${this.url}/auth/forgot_password`, {email: payload.email});
   }
 
+  public resetPassword(payload: IResetPasswordPayLoad): Observable<IResetPasswordResponse> {
+    const header = new HttpHeaders({Authorization : `Bearer ${payload.token}`});
+    return this.http.post<IResetPasswordResponse>(this.url + '/users/reset_password', {password: payload.password}, {headers: header});
+  }
   public logout(): void {
     localStorage.removeItem('token');
   }

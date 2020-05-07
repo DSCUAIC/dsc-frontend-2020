@@ -33,6 +33,15 @@ export interface IForgotPayload {
   email: string;
 }
 
+export interface IResetPasswordPayLoad {
+  password: string;
+  token: string;
+}
+
+export interface IResetPasswordResponse {
+  status: string;
+}
+
 export interface IForgotResponse {
   status: string;
 }

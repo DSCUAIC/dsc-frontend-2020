@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-password-recovery-new-password',
@@ -15,7 +16,7 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
   public token: string;
   public url: string = environment.url;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private service: SessionService) { }
 
   ngOnInit() {
     this.passwordForm = this.fb.group({
@@ -23,8 +24,6 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
       confirmedPassword: ['', [this.matchValidator.bind(this)]]
     });
     this.token = this.route.snapshot.queryParamMap.get('token');
-    console.log('Tokenul=');
-    console.log(this.token);
   }
 
   matchValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -50,20 +49,7 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
   }
 
   submit() {
-    /*const header: HttpHeaders = new HttpHeaders();
-    header.set('Authorization', `Bearer${this.token}`);*/
-    const header = new HttpHeaders({Authorization : `Bearer ${this.token}`});
-    this.http.post(this.url + '/users/reset_password', {password: this.password.value}, {headers: header}).subscribe(
-      data => {
-        console.log('Totu bine!');
-        console.log(data);
-      },
-      err => {
-        console.log('A avut loc o eroare!');
-        console.log(err);
-      }
-
-    );
+    this.service.resetPassword({password: this.password.value, token: this.token});
   }
 
 }

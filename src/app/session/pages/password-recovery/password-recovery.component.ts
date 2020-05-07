@@ -19,14 +19,7 @@ export class PasswordRecoveryComponent {
 
 
   submit() {
-      this.services.forgot({email: this.email.value}).subscribe(
-        data => {
-          console.log(data);
-        },
-        err => {
-          console.log(err);
-        }
-      );
+      this.services.forgot({email: this.email.value});
       this.message = 'Your code is on its way. Check your inbox!';
   }
 
