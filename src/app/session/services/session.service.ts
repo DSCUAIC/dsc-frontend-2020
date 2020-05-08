@@ -7,10 +7,10 @@ import {
   IRegisterPayload,
   IRegisterResponse,
   IForgotPayload,
-  TokenPair,
   IForgotResponse,
   IResetPasswordPayLoad,
-  IResetPasswordResponse
+  IResetPasswordResponse,
+  IValidate,
 } from '../models';
 import { environment, config } from 'src/environments/environment';
 
@@ -42,7 +42,13 @@ export class SessionService {
     const header = new HttpHeaders({Authorization : `Bearer ${payload.token}`});
     return this.http.post<IResetPasswordResponse>(this.url + '/users/reset_password', {password: payload.password}, {headers: header});
   }
+
+  public validate(payload: IValidate): Observable<any> {
+    return this.http.post<any>(this.url + '/auth/validate', payload);
+  }
+
   public logout(): void {
     localStorage.removeItem('token');
   }
+
 }

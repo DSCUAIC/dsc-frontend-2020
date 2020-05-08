@@ -17,6 +17,7 @@ import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/pass
 import { AuthGuardService } from './services/auth-guard.service';
 import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
 import { RouterModule } from '@angular/router';
+import { ValidationComponent } from './pages/validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     LogoutComponent,
     PasswordRecoveryComponent,
     PasswordRecoveryTwoComponent,
-    PasswordRecoveryNewPasswordComponent
+    PasswordRecoveryNewPasswordComponent,
+    ValidationComponent
   ],
   imports: [
     ReactiveFormsModule,
