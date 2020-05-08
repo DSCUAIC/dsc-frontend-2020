@@ -1,6 +1,13 @@
-<app-week-days (selectedDay)="getChildData($event)"></app-week-days>
-<div class="time-table">
-    <ng-container class="course-container" *ngFor="let course of courses">
-        <app-course [course]="course"></app-course>
-    </ng-container>
-</div>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav>
+    <app-side-menu></app-side-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-week-days></app-week-days>
+    <div class="time-table">
+      <ng-container class="course-container" *ngFor="let course of courses">
+        <app-course [course]="course" (click)="sidenav.toggle()"></app-course>
+      </ng-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

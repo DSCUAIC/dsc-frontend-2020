@@ -6,6 +6,8 @@ import { CourseTimeComponent } from './components/course-time/course-time.compon
 import { CourseContentComponent } from './components/course-content/course-content.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../material.module';
+import { SideMenuComponent } from './components';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { SharedModule } from '../shared/shared.module';
     CourseComponent,
     CourseTimeComponent,
     CourseContentComponent,
+    SideMenuComponent,
   ],
   exports: [TimeTableComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    MaterialModule,
   ]
 })
 export class TimeTableModule {}
