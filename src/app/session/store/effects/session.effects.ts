@@ -28,15 +28,15 @@ export class SessionEffects {
       localStorage.setItem('token', data.payload.token);
       this.router.navigateByUrl('/');
     })
-  )
+  );
 
   @Effect({ dispatch: false })
   LoginFailure: Observable<any> = this.actions$.pipe(
     ofType(SessionLoginFailure),
     tap(() => {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/auth/login');
     })
-  )
+  );
 
   constructor(
     private router: Router,

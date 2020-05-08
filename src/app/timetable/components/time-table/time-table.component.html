@@ -1,8 +1,9 @@
-<mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav>
-    <app-side-menu></app-side-menu>
+<mat-sidenav-container fullscreen class="sidenav">
+  <mat-sidenav class="sidenav" #sidenav>
+    <app-side-menu [nav]="sidenav"></app-side-menu>
   </mat-sidenav>
   <mat-sidenav-content>
+    <app-header></app-header>
     <app-week-days></app-week-days>
     <div class="time-table">
       <ng-container class="course-container" *ngFor="let course of courses">

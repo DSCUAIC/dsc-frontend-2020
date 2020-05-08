@@ -1,27 +1,31 @@
 <div class="menu-container">
-    <div class="background-header">
-        <img src="../../../../assets/welcome-page-assets/Background.png">
-        <div class="header-text">
-            <p>John Doe</p>
-            <span>Year II • Group XY</span>
-        </div>
-      </div>
-      <div class="menu-container"> 
-          <a mat-button>
-              <mat-icon>schedule</mat-icon>
-              My Schedule
-          </a>
-          <a mat-button routerLink="['/']">
-            <mat-icon>calendar_today</mat-icon>
-            Timetable
-        </a>
-        <a mat-button>
-            <mat-icon>border_color</mat-icon>
-            Manage Courses
-        </a>
-        <a mat-button>
-            <mat-icon>filter_list</mat-icon>
-            Filters
-        </a>
-      </div>
+  <div class="background-header">
+    <img src="../../../../assets/welcome-page-assets/Background.png">
+    <div class="header-text">
+      <p>John Doe</p>
+      <span>Year II • Group XY</span>
+    </div>
+  </div>
+  <div class="menu-container">
+    <a mat-button>
+      <mat-icon>schedule</mat-icon>
+      <span>My Schedule</span>
+    </a>
+    <a mat-button (click)="navigate('/')">
+      <mat-icon>calendar_today</mat-icon>
+      <span>Timetable</span>
+    </a>
+    <a mat-button>
+      <mat-icon>border_color</mat-icon>
+      <span>Manage Courses</span>
+    </a>
+    <a mat-button>
+      <mat-icon>filter_list</mat-icon>
+      <span>Filters</span>
+    </a>
+    <a mat-button (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+      <span>Logout</span>
+    </a>
+  </div>
 </div>

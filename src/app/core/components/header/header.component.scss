@@ -1,24 +1,27 @@
 .header-container {
-    width: 100%;
-    height: 72px;
-    font-family: Helvetica;
-    font-size: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
-    margin: 15px 0 15px;
+  width: 100%;
+  height: 72px;
+  font-family: Helvetica;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  padding: 15px 0 15px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 2;
 }
 
 .weekday {
-    text-align: center;
+  text-align: center;
 }
 
 .back-btn {
-    color: #15D0A1;
-    padding: 0 15px;
+  color: #15D0A1;
+  padding: 0 15px;
 }
 
 .notification {
-    padding: 0 15px;
+  padding: 0 15px;
 }

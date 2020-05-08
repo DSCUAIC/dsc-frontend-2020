@@ -12,7 +12,8 @@ import {
   IResetPasswordResponse,
   IValidate,
 } from '../models';
-import { environment, config } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +24,11 @@ export class SessionService {
   constructor(private http: HttpClient) {}
 
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
-    return this.http.post<any>(`${config.apiUrl}/auth/login`, payload);
+    return this.http.post<any>(`${environment.url}/auth/login`, payload);
   }
 
   public checkAccount(token: string): Observable<any> {
-    return this.http.patch<any>(`${config.apiUrl}/post`, {token});
+    return this.http.patch<any>(`${environment.url}/post`, {token});
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
@@ -40,15 +41,23 @@ export class SessionService {
 
   public resetPassword(payload: IResetPasswordPayLoad): Observable<IResetPasswordResponse> {
     const header = new HttpHeaders({Authorization : `Bearer ${payload.token}`});
-    return this.http.post<IResetPasswordResponse>(this.url + '/users/reset_password', {password: payload.password}, {headers: header});
+    return this.http.post<IResetPasswordResponse>(
+      this.url + '/users/reset_password',
+      { password: payload.password },
+      { headers: header }
+    );
   }
 
   public validate(payload: IValidate): Observable<any> {
-    return this.http.post<any>(this.url + '/auth/validate', payload);
+    return this.http.post<{ token: string }>(this.url + '/auth/validate', payload).pipe(
+      tap(response => {
+        console.log(response);
+        localStorage.setItem('token', response.token);
+      })
+    );
   }
 
   public logout(): void {
     localStorage.removeItem('token');
   }
-
 }

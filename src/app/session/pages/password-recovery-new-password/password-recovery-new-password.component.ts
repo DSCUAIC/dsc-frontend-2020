@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { SessionService } from '../../services/session.service';
@@ -16,7 +16,12 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
   public token: string;
   public url: string = environment.url;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private service: SessionService) { }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: SessionService
+  ) { }
 
   ngOnInit() {
     this.passwordForm = this.fb.group({
@@ -49,7 +54,10 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
   }
 
   submit() {
-    this.service.resetPassword({password: this.password.value, token: this.token});
+    this.service.resetPassword({
+      password: this.password.value,
+      token: this.token
+    }).subscribe(() => this.router.navigate(['/auth/login']));
   }
 
 }

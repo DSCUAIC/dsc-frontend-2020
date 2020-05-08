@@ -13,7 +13,6 @@ import { AuthGuardService } from './session/services/auth-guard.service';
 import { CheckingAccountComponent } from './session/pages/checking-account/checking-account.component';
 import { TroubleshootingComponent } from './session/pages/troubleshooting/troubleshooting.component';
 import { WelcomePageComponent } from './core/pages';
-import { ValidationComponent } from './session/pages/validation/validation.component';
 
 const routes: Routes = [
   {
@@ -69,8 +68,8 @@ const routes: Routes = [
       },
       {
         path: 'verification',
-        component: ValidationComponent
-      }
+        component: CheckingAccountComponent
+      },
     ]
   },
   {

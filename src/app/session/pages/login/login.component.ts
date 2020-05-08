@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     const payload = {
       email: this.profileForm.value.email,
       password: this.profileForm.value.password
-    }
-    this.store.dispatch(SessionLoginRequest({payload}));
+    };
+    this.store.dispatch(SessionLoginRequest({ payload }));
   }
 }

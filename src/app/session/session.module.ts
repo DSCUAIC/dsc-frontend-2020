@@ -19,7 +19,6 @@ import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-
 import { CheckingAccountComponent } from './pages/checking-account/checking-account.component';
 import { TroubleshootingComponent } from './pages/troubleshooting/troubleshooting.component';
 import { RouterModule } from '@angular/router';
-import { ValidationComponent } from './pages/validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { ValidationComponent } from './pages/validation/validation.component';
     PasswordRecoveryComponent,
     PasswordRecoveryTwoComponent,
     PasswordRecoveryNewPasswordComponent,
-    ValidationComponent,
     CheckingAccountComponent,
     TroubleshootingComponent,
   ],

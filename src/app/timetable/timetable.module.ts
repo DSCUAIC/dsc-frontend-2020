@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material.module';
 import { SideMenuComponent } from './components';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SideMenuComponent } from './components';
     CommonModule,
     SharedModule,
     MaterialModule,
+    CoreModule,
   ]
 })
 export class TimeTableModule {}
