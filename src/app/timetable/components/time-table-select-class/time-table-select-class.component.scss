@@ -1,0 +1,31 @@
+:host {
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+}
+
+.div {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+form {
+    top: -120px;
+
+    > :not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    .mat-form-field {
+        width: 100%;
+    }
+    
+    button {
+       width: 100%;
+   }
+}
+

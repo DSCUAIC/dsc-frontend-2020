@@ -7,6 +7,8 @@ import { CourseContentComponent } from './components/course-content/course-conte
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { TimeTableSelectClassComponent } from './components/time-table-select-class/time-table-select-class.component';
 import { SideMenuComponent } from './components';
 import { CoreModule } from '../core/core.module';
 
@@ -17,14 +19,22 @@ import { CoreModule } from '../core/core.module';
     CourseComponent,
     CourseTimeComponent,
     CourseContentComponent,
-    SideMenuComponent,
+    TimeTableSelectClassComponent,
+    SideMenuComponent
   ],
-  exports: [TimeTableComponent],
+
+  exports: [
+    TimeTableComponent,
+    TimeTableSelectClassComponent
+  ],
+
   imports: [
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
-    CoreModule,
+    CoreModule
   ]
 })
-export class TimeTableModule {}
+export class TimeTableModule { }
