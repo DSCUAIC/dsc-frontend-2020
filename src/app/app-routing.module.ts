@@ -10,6 +10,8 @@ import {
 } from './session/pages';
 import { NonAuthGuardService } from './session/services/nonauth-guard.service';
 import { AuthGuardService } from './session/services/auth-guard.service';
+import { CheckingAccountComponent } from './session/pages/checking-account/checking-account.component';
+import { TroubleshootingComponent } from './session/pages/troubleshooting/troubleshooting.component';
 import { WelcomePageComponent } from './core/pages';
 
 const routes: Routes = [
@@ -40,6 +42,19 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
+        path: 'forgotpassword2',
+        component: PasswordRecoveryTwoComponent,
+        /* canActivate: [NonAuthGuard] */
+      },
+      {
+        path: 'checkingaccount',
+        component: CheckingAccountComponent
+      },
+      {
+        path: 'troubleshoot',
+        component: TroubleshootingComponent
+      },
+      {
         path: 'forgot',
         component: PasswordRecoveryComponent
       },
@@ -48,9 +63,13 @@ const routes: Routes = [
         component: PasswordRecoveryTwoComponent
       },
       {
-        path: 'new-password',
+        path: 'resetPassword',
         component: PasswordRecoveryNewPasswordComponent
-      }
+      },
+      {
+        path: 'verification',
+        component: CheckingAccountComponent
+      },
     ]
   },
   {

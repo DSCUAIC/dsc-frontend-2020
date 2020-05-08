@@ -23,7 +23,7 @@ export class ForgotComponent implements OnInit {
     if (this.mainForm) {
       const toValue = (this.mainForm.get('email') as FormControl).value;
       if (fromValue && toValue && fromValue !== toValue) {
-        return { 'fieldMatch': true };
+        return { fieldMatch: true };
       }
       return null;
     }

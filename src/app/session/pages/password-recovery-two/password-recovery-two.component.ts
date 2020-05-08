@@ -7,9 +7,10 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./password-recovery-two.component.scss']
 })
 export class PasswordRecoveryTwoComponent {
+
   public code = new FormControl('', [Validators.required]);
 
   submit() {
-    //
+    //call to api
   }
 }

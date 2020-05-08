@@ -8,6 +8,7 @@
   "scripts": {
     "ng": "node server.js",
     "start": "node server.js",
+    "start:dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,7 +28,7 @@
     "@angular/platform-browser-dynamic": "~9.0.2",
     "@angular/router": "~9.0.2",
     "@ngrx/effects": "^9.0.0",
-    "@ngrx/store": "^9.0.0",
+    "@ngrx/store": "^9.1.0",
     "@ngrx/store-devtools": "^9.0.0",
     "express": "^4.17.1",
     "rxjs": "~6.5.4",

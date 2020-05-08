@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TimeTableSelectClassComponent } from './components/time-table-select-class/time-table-select-class.component';
+import { SideMenuComponent } from './components';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { TimeTableSelectClassComponent } from './components/time-table-select-cl
     CourseComponent,
     CourseTimeComponent,
     CourseContentComponent,
-    TimeTableSelectClassComponent
+    TimeTableSelectClassComponent,
+    SideMenuComponent
   ],
 
   exports: [
@@ -30,7 +33,8 @@ import { TimeTableSelectClassComponent } from './components/time-table-select-cl
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    CoreModule
   ]
 })
 export class TimeTableModule { }

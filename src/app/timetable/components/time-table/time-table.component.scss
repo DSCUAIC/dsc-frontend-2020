@@ -1,8 +1,18 @@
 .time-table {
-    background-color: #ffffff;
-    .course-container {
-        display: flex;
-        flex-flow: row;
-        flex-basis: 30% 70%;
-    }
+  background-color: #ffffff;
+  margin-top: 117px;
+
+  .course-container {
+    display: flex;
+    flex-flow: row;
+    flex-basis: 30% 70%;
+  }
+}
+
+.sidenav {
+  z-index: 10;
+}
+
+mat-sidenav {
+  width: 300px;
 }

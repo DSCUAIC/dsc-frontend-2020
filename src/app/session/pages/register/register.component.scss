@@ -16,6 +16,8 @@
 }
 
 form {
+  margin-top: 50px;
+
   .mat-form-field {
     width: 100%;
     padding: 5px 5px;
@@ -26,6 +28,11 @@ form {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 5px 5px;
+  }
+
+  .success__message {
+    color: green;
+    margin-bottom: 25px;
   }
 }
 

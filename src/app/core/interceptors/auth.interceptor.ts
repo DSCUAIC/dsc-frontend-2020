@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private ignoredUrls: string[] = ["login", "register", "forgot"];
+  private ignoredUrls: string[] = ['login', 'register', 'forgot'];
   constructor() {}
   intercept(
     req: HttpRequest<any>,
@@ -28,6 +28,6 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private get token(): string {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 }

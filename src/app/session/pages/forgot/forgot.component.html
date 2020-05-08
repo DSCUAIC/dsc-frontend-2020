@@ -1,16 +1,15 @@
 <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+  <label>
+    <span>Email</span>
+    <input type="email" formControlName="email" required placeholder="Enter Email">
+  </label>
 
-    <label>
-        <span>Email</span>
-        <input type="email" formControlName="email" required placeholder="Enter Email">
-    </label>
+  <label>
+    <span>Confirm Email</span>
+    <input type="email" formControlName="confirmEmail" required placeholder="Confirm Email">
+  </label>
 
-    <label>
-        <span>Confirm Email</span>
-        <input type="email" formControlName="confirmEmail" required placeholder="Confirm Email">
-    </label>
+  <div class="warn" *ngIf="confirmEmailField?.errors?.fieldMatch">The email addresses do not match</div>
 
-    <div class="warn" *ngIf="confirmEmailField?.errors?.fieldMatch">The email addresses do not match</div>
-
-    <button type="submit" [disabled]="mainForm.invalid">Submit</button>
+  <button type="submit" [disabled]="mainForm.invalid">Submit</button>
 </form>

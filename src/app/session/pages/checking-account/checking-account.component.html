@@ -1,0 +1,14 @@
+<div class="background">
+  <img src="/assets/welcome-page-assets/Background.png" />
+</div>
+
+<ng-container *ngIf="loading; else error">
+  <div class="main-body">
+    <p>Checking your account</p>
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+</ng-container>
+
+<ng-template #error>
+  <app-troubleshooting (request)="requestValidation()"></app-troubleshooting>
+</ng-template>

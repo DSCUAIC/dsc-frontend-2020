@@ -7,15 +7,18 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  weekDay: string = 'Monday';
+export class HeaderComponent implements OnInit, OnDestroy {
+  weekDay = 'Monday';
+
   public subscriptions$ = new Subscription();
   constructor(private timetableService: TimeTableService) {}
+
   ngOnInit() {
     this.timetableService.message$.subscribe((msg) => {
       this.weekDay = msg;
     });
   }
+
   ngOnDestroy() {
     this.subscriptions$.unsubscribe();
   }
