@@ -16,6 +16,8 @@ import { MaterialModule } from '../material.module';
 import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
+import { CheckingAccountComponent } from './pages/checking-account/checking-account.component';
+import { TroubleshootingComponent } from './pages/troubleshooting/troubleshooting.component';
 import { RouterModule } from '@angular/router';
 import { ValidationComponent } from './pages/validation/validation.component';
 
@@ -28,7 +30,9 @@ import { ValidationComponent } from './pages/validation/validation.component';
     PasswordRecoveryComponent,
     PasswordRecoveryTwoComponent,
     PasswordRecoveryNewPasswordComponent,
-    ValidationComponent
+    ValidationComponent,
+    CheckingAccountComponent,
+    TroubleshootingComponent,
   ],
   imports: [
     ReactiveFormsModule,
