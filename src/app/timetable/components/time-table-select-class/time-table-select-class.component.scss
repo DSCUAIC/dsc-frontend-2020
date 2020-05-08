@@ -15,13 +15,16 @@
 
 form {
     top: -120px;
+
     > :not(:last-child) {
         margin-bottom: 50px;
     }
+
     .mat-form-field {
         width: 100%;
     }
-   button {
+    
+    button {
        width: 100%;
    }
 }
