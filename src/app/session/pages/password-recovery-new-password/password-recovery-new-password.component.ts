@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-password-recovery-new-password',
@@ -9,14 +13,17 @@ import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 export class PasswordRecoveryNewPasswordComponent implements OnInit {
 
   public passwordForm: FormGroup;
+  public token: string;
+  public url: string = environment.url;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private service: SessionService) { }
 
   ngOnInit() {
     this.passwordForm = this.fb.group({
       password: [''],
       confirmedPassword: ['', [this.matchValidator.bind(this)]]
     });
+    this.token = this.route.snapshot.queryParamMap.get('token');
   }
 
   matchValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -42,6 +49,7 @@ export class PasswordRecoveryNewPasswordComponent implements OnInit {
   }
 
   submit() {
+    this.service.resetPassword({password: this.password.value, token: this.token});
   }
 
 }

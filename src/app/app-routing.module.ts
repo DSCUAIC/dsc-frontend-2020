@@ -48,7 +48,7 @@ const routes: Routes = [
         component: PasswordRecoveryTwoComponent
       },
       {
-        path: 'new-password',
+        path: 'resetPassword',
         component: PasswordRecoveryNewPasswordComponent
       }
     ]

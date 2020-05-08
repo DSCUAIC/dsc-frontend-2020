@@ -7,6 +7,11 @@ export const environment = {
   url: 'https://dsc-schedule.herokuapp.com'
 };
 
+export const config = {
+  apiUrl: 'https://dsc-schedule.herokuapp.com'
+};
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

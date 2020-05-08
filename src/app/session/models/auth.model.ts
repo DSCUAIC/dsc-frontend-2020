@@ -12,6 +12,14 @@ export interface IRegisterResponse {
   // to be implemented
 }
 
+
+export interface TokenPair{
+  jwt:string;
+  refreshToken:string; 
+}
+//^ am facut eu o interfata care sa contina JWT-ul si refreshToken-ul, nu sunt sigur daca
+// trebuie sa folosesc tot IRegisterResponse
+
 export interface IRegisterPayload {
   firstname: string;
   lastname: string;
@@ -22,6 +30,15 @@ export interface IRegisterPayload {
 
 export interface IForgotPayload {
   email: string;
+}
+
+export interface IResetPasswordPayLoad {
+  password: string;
+  token: string;
+}
+
+export interface IResetPasswordResponse {
+  status: string;
 }
 
 export interface IForgotResponse {
